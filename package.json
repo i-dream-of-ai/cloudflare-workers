@@ -1,6 +1,6 @@
 {
   "name": "workers-mcp",
-  "version": "0.1.0-1",
+  "version": "0.1.0-2",
   "description": "MCP transport to your own Cloudflare Worker",
   "license": "Apache-2.0",
   "author": "Cloudflare, Inc. (https://cloudflare.com)",
