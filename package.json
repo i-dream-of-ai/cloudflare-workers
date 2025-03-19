@@ -10,9 +10,20 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "dist/index.d.ts",
+      "import": "dist/index.js"
+    },
+    "./workers-oauth-provider": {
+      "types": "vendor/workers-oauth-provider/oauth-provider.d.ts",
+      "import": "vendor/workers-oauth-provider/oauth-provider.js"
+    }
+  },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "vendor"
   ],
   "access": "public",
   "bin": {
