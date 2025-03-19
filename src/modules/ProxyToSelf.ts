@@ -1,5 +1,5 @@
 import { WorkerEntrypoint } from 'cloudflare:workers'
-import { Proxy } from './Proxy'
+import { Proxy } from '../lib/Proxy'
 
 export class ProxyToSelf<T extends { SHARED_SECRET: string }> {
   env: T

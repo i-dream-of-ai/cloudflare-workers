@@ -1,5 +1,5 @@
 import { WorkerEntrypoint } from 'cloudflare:workers'
-import { Proxy } from './Proxy'
+import { Proxy } from '../lib/Proxy'
 
 type IndexStrategy =
   | {
