@@ -2,7 +2,12 @@
 
 > **Talk to a Cloudflare Worker from Claude Desktop!**
 
-This package provides both the CLI tooling and the in-Worker logic to connect Claude Desktop (or any [MCP Client](https://modelcontextprotocol.io/)) to a Cloudflare Worker on your account, so you can customise it to suit your needs.
+> [!NOTE]  
+> You can now [build and deploy MCP servers to Cloudflare that support remote MCP connections](https://developers.cloudflare.com/agents/guides/remote-mcp-server/) — and [use them with Claude Desktop, Cursor and other local-only MCP clients](https://developers.cloudflare.com/agents/guides/test-remote-mcp-server/). If you're starting a new MCP Server, you should read these guides instead. `workers-mcp` is a previous, local-only approach to building MCP servers.
+
+### What is `workers-mcp`?
+
+This package provides both the CLI tooling and the in-Worker logic to connect Claude Desktop (or any [MCP Client](https://modelcontextprotocol.io/)) to a Cloudflare Worker on your account, so you can customise it to suit your needs. It works via a build step that can translate TypeScript methods of your Worker like this:
 
 ```ts
 export class ExampleWorkerMCP extends WorkerEntrypoint<Env> {
@@ -19,6 +24,8 @@ export class ExampleWorkerMCP extends WorkerEntrypoint<Env> {
   // ...etc
 }
 ```
+
+...into MCP tools that a local Node.js server can expose to MCP clients. The Node.js server acts as a proxy, handling stdio transport locally, and calling the relevant method of your Worker running on Cloudflare. This allows you to expose any function or API in your app, or any service in [Cloudflare's developer platform](https://developers.cloudflare.com/products/), back to a LLM in your coding agent, Claude Desktop or other MCP client.
 
 ![image](https://github.com/user-attachments/assets/c16b2631-4eba-4914-8e26-d6ccea0fc578)
 
